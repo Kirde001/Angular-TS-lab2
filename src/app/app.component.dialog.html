@@ -1,0 +1,51 @@
+<mat-dialog-content>
+  <h2>Добавление данных о кинотеатре</h2>
+  <br>
+  <mat-form-field>
+    <mat-label>Название фильма</mat-label>
+    <input type='text' pattern='^[A-Za-zА-Яа-яЁё]+$' matInput [(ngModel)]="data.FilmName" (ngModelChange)="checkFormValidity()">
+  </mat-form-field>
+  <br>
+
+  <mat-form-field>
+    <mat-label>Choose wisely young one</mat-label>
+    <mat-select [(ngModel)]="data.CinemaHall" (ngModelChange)="checkFormValidity()">
+      <mat-option value="IMAX">IMAX</mat-option>
+      <mat-option value="VIP">VIP</mat-option>
+      <mat-option value="РГУ">РГУ</mat-option>
+      <mat-option value="KIRAKOS">KIRAKOS</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+
+  <mat-form-field>
+    <mat-label>Date or dare</mat-label>
+    <input matInput [matDatepicker]="picker" [max]="getToday()" [(ngModel)]="data.Date" (ngModelChange)="checkFormValidity()">
+    <mat-hint>мм/дд/гггг</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>We've got a city to burn</mat-label>
+    <input type='text' matInput [(ngModel)]="data.City" (ngModelChange)="checkFormValidity()">
+  </mat-form-field>
+
+  <br>
+  <br>
+
+  <section>
+    <mat-checkbox>Молился ли ты на ночь?</mat-checkbox>
+  </section>
+  <br>
+
+  <mat-form-field>
+    <mat-label>Girl's phone</mat-label>
+    <span matTextPrefix>+7 &nbsp;</span>
+    <input type='tel' pattern="[0-9]{10,10}" matInput [(ngModel)]="data.Tel" placeholder="(000)000-00-00" (ngModelChange)="checkFormValidity()">
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onOkClick()" [disabled]="isDisabled">Добавить</button>
+  <button mat-button (click)="onNoClick()">Отменить</button>
+</mat-dialog-actions>

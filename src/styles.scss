@@ -1,1 +1,196 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$labTEST-primary: mat.define-palette(mat.$indigo-palette);
+$labTEST-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$labTEST-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$labTEST-theme: mat.define-light-theme((
+  color: (
+    primary: $labTEST-primary,
+    accent: $labTEST-accent,
+    warn: $labTEST-warn,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+
+@include mat.all-component-themes($labTEST-theme);
+
 /* You can add global styles to this file, and also import other style files */
+
+
+$color1: rgb(83, 22, 102);
+$colorPRIME: rgb(218, 119, 195);
+$GRAN: rgb(100, 30, 84) ;
+$someGood: #a11377;
+html,body {
+  margin:0;
+  padding:0;
+  background-color: rgb(236, 170, 203);
+  height: 100%;
+  main {
+    height: fit-content;
+    min-height: 680px;
+    background-color: $colorPRIME;
+    margin: 30px;
+    margin-top:20px;
+    border-left: medium solid $GRAN;
+    border-left-style: groove;
+    border-radius: 5%;
+    border-top: medium solid $GRAN;
+    position: relative;
+    section {
+      height: inherit;
+      #DialogButt {
+        position: relative;
+        top:70px;
+        left:200px;
+        width:200px;
+        height:60px;
+        border: 3px solid $GRAN;
+      }
+    }
+    .SigmaTable {
+      border: medium solid rgb(94, 38, 146);
+      position: relative;
+      bottom: 40px;
+      left: 550px;
+      color: $color1;
+      border-radius: 10px;
+      td,th{
+        width: 100px;
+        border: 3px solid #361247;
+        border-radius: 10%;
+        height:fit-content
+      }
+      td {
+        text-align: center;
+        #deleteButton {
+          background: transparent;
+          border: none !important;
+          font-size:0;
+          #TrashBin {
+            width: 100px;
+            height: 100px;
+          }
+        }
+      }
+      th {
+        text-align: center;
+      }
+      tr:hover {
+        background-color: rgb(112, 31, 76);
+        color: white;
+      }
+      caption {
+        margin:3px;
+        font-size: xx-large;
+        color: $color1;
+      }
+    }
+    #RyanSadImg {
+      position: absolute;
+      left: 1600px;
+      bottom: 450px;
+    }
+    #BarbieManImg {
+      position: absolute;
+      left: 30px;
+      top: 525px;
+    }
+  }
+  header {
+    background-color: $colorPRIME;
+    h1 {
+      margin:0;
+      text-align: center;
+      color: $color1;
+    }
+  }
+  nav {
+    border-bottom: medium solid $GRAN;
+    border-width: 2.5px;
+    border-bottom-left-radius: 30%;
+    border-bottom-right-radius: 90%;
+    background-color: $colorPRIME;
+    li {
+      display:inline-block;
+      margin:0;
+    }
+    ul {
+      margin:0;
+    }
+    .cloud {
+      padding:10px;
+      margin: 10px;
+      background-color: rgb(184, 203, 219);
+      border-radius: 30%;
+      width: 200px;
+      text-align: center;
+    }
+    a {
+      outline: none;
+      text-decoration: none;
+    }
+    a:visited {
+      color: $color1;
+    }
+    a:link {
+      color:$someGood;
+    }
+  }
+  footer {
+    background-color: $colorPRIME;
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:30px;
+    width:100%;
+    padding:10px;
+    border-top: medium solid $GRAN;
+    border-width: 2.5px;
+    border-top-left-radius: 70%;
+    border-top-right-radius: 15%;
+    #AsuParody {
+      text-align: right;
+      padding-right: 30px;
+      font-size: large;
+      font-weight: bold;
+      color: $color1;
+      #AsuColor {
+        color:blue;
+      }
+    }
+  }
+  img { 
+    border-radius: 30%;
+    margin: 0px;
+    position: relative;
+  }
+  p { 
+    margin: 0;
+    padding: 2px;
+    text-align: right;
+    color: $color1;
+  }
+}
